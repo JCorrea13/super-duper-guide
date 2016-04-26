@@ -11,7 +11,6 @@ public class ArvoreApp {
 		System.out.println(a);
 		a.inserir(20);
 		System.out.println(a);
-		a.inserir(30);
-		System.out.println(a);
+
 	}
 }

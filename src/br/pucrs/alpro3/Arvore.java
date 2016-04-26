@@ -105,8 +105,20 @@ public class Arvore {
 
 	public List<Integer> caminho(int chave) {
 		List<Integer> resposta = new ArrayList<>();
-		// TODO: completar caminho
+		caminho0(raiz, chave, resposta);
 		return resposta;
+	}
+
+	private void caminho0(Nodo nodo, int chave, List<Integer> resposta) {
+		if (nodo == null) {
+			resposta.clear();
+			return;
+		}
+		resposta.add(nodo.chave);
+		if (nodo.chave < chave)
+			caminho0(nodo.direito, chave, resposta);
+		else if (nodo.chave > chave)
+			caminho0(nodo.esquerdo, chave, resposta);		
 	}
 	
 }
