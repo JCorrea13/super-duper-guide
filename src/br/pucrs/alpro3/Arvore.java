@@ -46,6 +46,7 @@ public class Arvore {
 
 	/**
 	 * Deve gerar exceção no caso de chave duplicada.
+	 * 
 	 * @param chave
 	 */
 	public void inserir(int chave) {
@@ -118,7 +119,24 @@ public class Arvore {
 		if (nodo.chave < chave)
 			caminho0(nodo.direito, chave, resposta);
 		else if (nodo.chave > chave)
-			caminho0(nodo.esquerdo, chave, resposta);		
+			caminho0(nodo.esquerdo, chave, resposta);
 	}
-	
+
+	public List<Integer> folhas() {
+		List<Integer> resposta = new ArrayList<>();
+		folhas0(raiz, resposta);
+		return resposta;
+	}
+
+	private void folhas0(Nodo nodo, List<Integer> resposta) {
+		if (nodo != null) {
+			if (nodo.direito == null && nodo.esquerdo == null) {
+				resposta.add(nodo.chave);
+				return;
+			}
+			folhas0(nodo.esquerdo, resposta);
+			folhas0(nodo.direito, resposta);
+		}
+	}
+
 }
