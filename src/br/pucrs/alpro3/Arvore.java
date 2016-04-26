@@ -103,4 +103,10 @@ public class Arvore {
 		return 1 + Math.max(altura0(nodo.esquerdo), altura0(nodo.direito));
 	}
 
+	public List<Integer> caminho(int chave) {
+		List<Integer> resposta = new ArrayList<>();
+		// TODO: completar caminho
+		return resposta;
+	}
+	
 }
