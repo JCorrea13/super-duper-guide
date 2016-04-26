@@ -135,4 +135,12 @@ public class ArvoreTest {
 		assertEquals(expected, actual);
 	}
 
+	@Test
+	public void testFolhasArvoreVazia() {
+		Arvore a = new Arvore();
+		List<Integer> expected = new ArrayList<>();
+		List<Integer> actual = a.folhas();
+		assertEquals(expected, actual);
+	}
+
 }
