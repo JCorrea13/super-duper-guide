@@ -64,15 +64,20 @@ public class ArvoreAVL {
 			if (h(nodo.direito) - h(nodo.esquerdo) >= 2) {
 				if (nodo.direito.chave < chave)
 					nodo = rotacaoComFilhoDireito(nodo);	
-				else 
-					nodo = duplaComFilhoDireito(nodo);	
-
+				else {
+					nodo = duplaComFilhoDireito(nodo);
+				}
 			}
 		}
 		else if (nodo.chave > chave) {
 			nodo.esquerdo = inserir0(nodo.esquerdo, chave);
 			if (h(nodo.esquerdo) - h(nodo.direito) >= 2)
-				nodo = rotacaoComFilhoEsquerdo(nodo);			
+				if (nodo.esquerdo.chave > chave)
+					nodo = rotacaoComFilhoEsquerdo(nodo);			
+				else {
+					nodo = duplaComFilhoEsquerdo(nodo);
+				}
+				
 		}
 		else
 			throw new IllegalArgumentException("chave duplicada");
@@ -82,12 +87,16 @@ public class ArvoreAVL {
 		return nodo;
 	}
 
-	private Nodo duplaComFilhoDireito(Nodo nodo) {
-		// TODO Auto-generated method stub
-		return null;
+	private static Nodo duplaComFilhoEsquerdo(Nodo k1) {
+		k1.esquerdo = rotacaoComFilhoDireito(k1.esquerdo);
+		return rotacaoComFilhoEsquerdo(k1);	}
+
+	private static Nodo duplaComFilhoDireito(Nodo k1) {
+		k1.direito = rotacaoComFilhoEsquerdo(k1.direito);
+		return rotacaoComFilhoDireito(k1);
 	}
 
-	private Nodo rotacaoComFilhoEsquerdo(Nodo k1) {
+	private static Nodo rotacaoComFilhoEsquerdo(Nodo k1) {
 		Nodo k2 = k1.esquerdo;
 		k1.esquerdo = k2.direito;
 		k2.direito = k1;
@@ -98,7 +107,7 @@ public class ArvoreAVL {
 		return k2;
 	}
 
-	private Nodo rotacaoComFilhoDireito(Nodo k1) {
+	private static Nodo rotacaoComFilhoDireito(Nodo k1) {
 		Nodo k2 = k1.direito;
 		k1.direito = k2.esquerdo;
 		k2.esquerdo = k1;
@@ -121,7 +130,7 @@ public class ArvoreAVL {
 		return chaves.toString();
 	}
 
-	private void dump0(Nodo nodo, List<String> chaves) {
+	private static void dump0(final Nodo nodo, List<String> chaves) {
 		if (nodo == null)
 			return;
 		dump0(nodo.esquerdo, chaves);
