@@ -9,7 +9,72 @@ import org.junit.Test;
 
 public class ArvoreTest {
 
+	
 	@Test(expected = IllegalArgumentException.class)
+	public void testNivelEmArvoreVazia() {
+		Arvore a = new Arvore();
+		a.getValoresNoNivel(0);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testNivelInexistente() {
+		Arvore a = new Arvore();
+		a.inserir(10);
+		a.inserir(30);
+		a.inserir(20);
+		a.getValoresNoNivel(3);
+	}
+	
+	@Test
+	public void testNivel0() {
+		Arvore a = new Arvore();
+		a.inserir(10);
+		a.inserir(30);
+		a.inserir(20);
+		List<Integer> actual = a.getValoresNoNivel(0);
+		List<Integer> expected = new ArrayList<>();
+		expected.add(10);
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testNivel1Lista() {
+		Arvore a = new Arvore();
+		a.inserir(10);
+		a.inserir(30);
+		a.inserir(20);
+		List<Integer> actual = a.getValoresNoNivel(1);
+		List<Integer> expected = new ArrayList<>();
+		expected.add(30);
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testNivel2Lista() {
+		Arvore a = new Arvore();
+		a.inserir(10);
+		a.inserir(30);
+		a.inserir(20);
+		List<Integer> actual = a.getValoresNoNivel(2);
+		List<Integer> expected = new ArrayList<>();
+		expected.add(20);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testNivel1Piramide() {
+		Arvore a = new Arvore();
+		a.inserir(20);
+		a.inserir(10);
+		a.inserir(30);
+		List<Integer> actual = a.getValoresNoNivel(1);
+		List<Integer> expected = new ArrayList<>();
+		expected.add(10);
+		expected.add(30);
+		assertEquals(expected, actual);
+	}
+
+	@Test
 	public void testChaveDuplicada() {
 		Arvore a = new Arvore();
 		a.inserir(10);

@@ -139,4 +139,9 @@ public class Arvore {
 		}
 	}
 
+	public List<Integer> getValoresNoNivel(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
