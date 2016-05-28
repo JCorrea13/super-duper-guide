@@ -3,7 +3,8 @@ package br.pucrs.alpro3.grafos;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Grafo direcionado com arestas não valoradas.
@@ -24,7 +25,7 @@ public class Grafo {
 		int tamanho;
 		String aresta[];
 		String linha;
-		try(BufferedReader bf = new BufferedReader(new FileReader(new File(nomeDoArquivo)))) {
+		try (BufferedReader bf = new BufferedReader(new FileReader(new File(nomeDoArquivo)))) {
 			tamanho = Integer.parseInt(bf.readLine());
 			dados = new int[tamanho][tamanho];
 
@@ -47,7 +48,7 @@ public class Grafo {
 		if (tamanho <= 0)
 			throw new IllegalArgumentException("O grafo deve ter um ou mais nodos.");
 	}
-	
+
 	private void checkDestino(int destino) {
 		if (destino < 0 && destino >= dados.length)
 			throw new IllegalArgumentException("O nodo do destino não existe");
@@ -56,6 +57,28 @@ public class Grafo {
 	private void checkOrigem(int origem) {
 		if (origem < 0 && origem >= dados.length)
 			throw new IllegalArgumentException("O nodo da origem não existe");
+	}
+
+	public List<Integer> percursoLargura(int inicio) {
+		// TODO: FILA
+		return null;
+	}
+
+	public List<Integer> percursoProfundidade(int inicio) {
+		List<Integer> r = new ArrayList<>();
+		percursoProfundidade(inicio, r);
+		return r;
+	}
+
+	private void percursoProfundidade(int nodo, List<Integer> percurso) {
+		percurso.add(nodo);
+		for (int i = 0; i < dados.length; i++) {
+			if (dados[nodo][i] != 0) {
+				if (!percurso.contains(i)) {	// Evita ciclos!
+					percursoProfundidade(i, percurso);
+				}
+			}
+		}
 	}
 
 	@Override
