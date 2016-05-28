@@ -16,6 +16,7 @@ public class Grafo {
 	private int dados[][];
 
 	public Grafo(int tamanho) {
+		checkTamanho(tamanho);
 		dados = new int[tamanho][tamanho];
 	}
 
@@ -37,7 +38,24 @@ public class Grafo {
 	}
 
 	public void addAresta(int origem, int destino) {
+		checkOrigem(origem);
+		checkDestino(destino);
 		dados[origem][destino] = 1;
+	}
+
+	private void checkTamanho(int tamanho) {
+		if (tamanho <= 0)
+			throw new IllegalArgumentException("O grafo deve ter um ou mais nodos.");
+	}
+	
+	private void checkDestino(int destino) {
+		if (destino < 0 && destino >= dados.length)
+			throw new IllegalArgumentException("O nodo do destino não existe");
+	}
+
+	private void checkOrigem(int origem) {
+		if (origem < 0 && origem >= dados.length)
+			throw new IllegalArgumentException("O nodo da origem não existe");
 	}
 
 	@Override
@@ -51,5 +69,4 @@ public class Grafo {
 		}
 		return s;
 	}
-
 }
