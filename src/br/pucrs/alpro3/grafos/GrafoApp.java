@@ -2,14 +2,12 @@ package br.pucrs.alpro3.grafos;
 
 public class GrafoApp {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		System.out.println("Grafos");
 		
-		Grafo g = new Grafo(5);
+		Grafo g = new Grafo("g5.txt");
 		
-		g.addAresta(0, 4);
-		g.addAresta(4, 0);
-		
+	
 		System.out.println(g);
 		
 		
