@@ -6,7 +6,6 @@ public class GrafoApp {
 		System.out.println("Grafos");
 		
 		Grafo g = new Grafo("g5.txt");
-		
 	
 		System.out.println(g);
 		
