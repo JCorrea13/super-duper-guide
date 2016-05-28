@@ -1,4 +1,4 @@
-package br.pucrs.alpro3;
+package br.pucrs.alpro3.arvores;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

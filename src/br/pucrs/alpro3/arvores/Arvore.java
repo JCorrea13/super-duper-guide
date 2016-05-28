@@ -1,4 +1,4 @@
-package br.pucrs.alpro3;
+package br.pucrs.alpro3.arvores;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,13 +8,12 @@ import java.util.List;
  * @author marco.mangan@pucrs.br
  *
  */
-public class ArvoreAVL {
+public class Arvore {
 
 	private static class Nodo {
 		int chave;
 		Nodo direito;
 		Nodo esquerdo;
-		int altura;
 
 		Nodo(int chave) {
 			this.chave = chave;
@@ -59,86 +58,15 @@ public class ArvoreAVL {
 			contador++;
 			return new Nodo(chave);
 		}
-		if (nodo.chave < chave) {
+		if (nodo.chave < chave)
 			nodo.direito = inserir0(nodo.direito, chave);
-			if (h(nodo.direito) - h(nodo.esquerdo) >= 2) {
-				if (nodo.direito.chave < chave)
-					nodo = rotacaoComFilhoDireito(nodo);	
-				else {
-					nodo = duplaComFilhoDireito(nodo);
-				}
-			}
-		}
-		else if (nodo.chave > chave) {
+		else if (nodo.chave > chave)
 			nodo.esquerdo = inserir0(nodo.esquerdo, chave);
-			if (h(nodo.esquerdo) - h(nodo.direito) >= 2)
-				if (nodo.esquerdo.chave > chave)
-					nodo = rotacaoComFilhoEsquerdo(nodo);			
-				else {
-					nodo = duplaComFilhoEsquerdo(nodo);
-				}
-				
-		}
 		else
 			throw new IllegalArgumentException("chave duplicada");
-		
-		nodo.altura = 1 + Math.max(h(nodo.direito), h(nodo.esquerdo));
-		
 		return nodo;
 	}
 
-	private static Nodo duplaComFilhoEsquerdo(Nodo k1) {
-		k1.esquerdo = rotacaoComFilhoDireito(k1.esquerdo);
-		return rotacaoComFilhoEsquerdo(k1);	}
-
-	private static Nodo duplaComFilhoDireito(Nodo k1) {
-		k1.direito = rotacaoComFilhoEsquerdo(k1.direito);
-		return rotacaoComFilhoDireito(k1);
-	}
-
-	private static Nodo rotacaoComFilhoEsquerdo(Nodo k1) {
-		Nodo k2 = k1.esquerdo;
-		k1.esquerdo = k2.direito;
-		k2.direito = k1;
-		
-		k1.altura = 1 + Math.max(h(k1.direito), h(k1.esquerdo));
-		k2.altura = 1 + Math.max(h(k2.direito), h(k2.esquerdo));
-		
-		return k2;
-	}
-
-	private static Nodo rotacaoComFilhoDireito(Nodo k1) {
-		Nodo k2 = k1.direito;
-		k1.direito = k2.esquerdo;
-		k2.esquerdo = k1;
-		
-		k1.altura = 1 + Math.max(h(k1.direito), h(k1.esquerdo));
-		k2.altura = 1 + Math.max(h(k2.direito), h(k2.esquerdo));
-		
-		return k2;
-	}
-
-	private static int h(Nodo nodo) {
-		if (nodo == null)
-			return -1;
-		return nodo.altura;
-	}
-
-	public String dump() {
-		List<String> chaves = new ArrayList<>();
-		dump0(raiz, chaves);
-		return chaves.toString();
-	}
-
-	private static void dump0(final Nodo nodo, List<String> chaves) {
-		if (nodo == null)
-			return;
-		dump0(nodo.esquerdo, chaves);
-		chaves.add(String.format("{C=%d : A=%d : D=%d}", nodo.chave, nodo.altura,
-				h(nodo.esquerdo) - h(nodo.direito)));
-		dump0(nodo.direito, chaves);
-	}	
-	
 	@Override
 	public String toString() {
 		List<Integer> chaves = new ArrayList<>();
@@ -209,6 +137,11 @@ public class ArvoreAVL {
 			folhas0(nodo.esquerdo, resposta);
 			folhas0(nodo.direito, resposta);
 		}
+	}
+
+	public List<Integer> getValoresNoNivel(int i) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

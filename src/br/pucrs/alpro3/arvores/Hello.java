@@ -1,4 +1,4 @@
-package br.pucrs.alpro3;
+package br.pucrs.alpro3.arvores;
 
 public class Hello {
 	public static void main(String[] args) {

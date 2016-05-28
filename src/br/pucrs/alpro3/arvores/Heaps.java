@@ -1,4 +1,4 @@
-package br.pucrs.alpro3;
+package br.pucrs.alpro3.arvores;
 
 import java.util.Arrays;
 
