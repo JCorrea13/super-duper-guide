@@ -60,8 +60,24 @@ public class Grafo {
 	}
 
 	public List<Integer> percursoLargura(int inicio) {
-		// TODO: FILA
-		return null;
+		List<Integer> r = new ArrayList<>();
+
+		List<Integer> fila = new ArrayList<>();
+		fila.add(inicio);
+		while (!fila.isEmpty()) {
+			int nodo = fila.remove(0);
+			r.add(nodo);
+			for (int i = 0; i < dados.length; i++) {
+				if (dados[nodo][i] != 0) {
+					if (!r.contains(i)) {
+						fila.add(i);
+					}
+				}
+			}
+
+		}
+
+		return r;
 	}
 
 	public List<Integer> percursoProfundidade(int inicio) {
@@ -74,7 +90,7 @@ public class Grafo {
 		percurso.add(nodo);
 		for (int i = 0; i < dados.length; i++) {
 			if (dados[nodo][i] != 0) {
-				if (!percurso.contains(i)) {	// Evita ciclos!
+				if (!percurso.contains(i)) { // Evita ciclos!
 					percursoProfundidade(i, percurso);
 				}
 			}

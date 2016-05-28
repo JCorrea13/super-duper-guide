@@ -9,7 +9,7 @@ public class GrafoApp {
 	
 		System.out.println(g);
 		
-		System.out.println(g.percursoProfundidade(0));
+		System.out.println(g.percursoLargura(0));
 		
 		
 	}
