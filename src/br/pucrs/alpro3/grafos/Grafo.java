@@ -31,7 +31,7 @@ public class Grafo {
 
 			while ((linha = bf.readLine()) != null) {
 				aresta = linha.split(" ");
-				addAresta(Integer.parseInt(aresta[0]), Integer.parseInt(aresta[1]));
+				addAresta(Integer.parseInt(aresta[0]), Integer.parseInt(aresta[1]), Integer.parseInt(aresta[2]));
 			}
 		} catch (Exception e) {
 			throw e;
@@ -42,6 +42,12 @@ public class Grafo {
 		checkOrigem(origem);
 		checkDestino(destino);
 		dados[origem][destino] = 1;
+	}
+
+	public void addAresta(int origem, int destino, int peso) {
+		checkOrigem(origem);
+		checkDestino(destino);
+		dados[origem][destino] = peso;
 	}
 
 	private void checkTamanho(int tamanho) {
