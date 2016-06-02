@@ -55,9 +55,8 @@ public class GrafoTest {
 		assertEquals(expected, actual);
 	}	
 	
-	
 	@Test
-	public void testG6() throws Exception {
+	public void testG6Largura() throws Exception {
 		Grafo g = new Grafo("g6.txt");
 		List<Integer> expected = new ArrayList<>();
 		for (int i = 0; i <= 9; i++) {
@@ -67,5 +66,11 @@ public class GrafoTest {
 		assertEquals(expected, actual);
 	}
 	
-	
+	@Test
+	public void testG6Profundidade() throws Exception {
+		Grafo g = new Grafo("g6.txt");
+		String expected = "[0, 1, 2, 5, 6, 3, 7, 4, 8, 9]";
+		String actual = g.percursoProfundidade(0).toString();
+		assertEquals(expected, actual);
+	}
 }
