@@ -102,6 +102,16 @@ public class Grafo {
 			}
 		}
 	}
+	
+	/**
+	 * Kruskal
+	 * @return
+	 */
+	public int mst() {
+		return 0;
+	}
+	
+	
 
 	@Override
 	public String toString() {

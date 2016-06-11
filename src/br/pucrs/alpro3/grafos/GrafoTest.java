@@ -24,7 +24,7 @@ public class GrafoTest {
 		expected.add(0);
 		List<Integer> actual = g.percursoLargura(0);
 		assertEquals(expected, actual);
-	}	
+	}
 
 	@Test
 	public void testG3() throws Exception {
@@ -34,7 +34,7 @@ public class GrafoTest {
 		expected.add(1);
 		List<Integer> actual = g.percursoLargura(0);
 		assertEquals(expected, actual);
-	}	
+	}
 
 	@Test
 	public void testG4() throws Exception {
@@ -43,7 +43,7 @@ public class GrafoTest {
 		expected.add(0);
 		List<Integer> actual = g.percursoLargura(0);
 		assertEquals(expected, actual);
-	}	
+	}
 
 	@Test
 	public void testG5() throws Exception {
@@ -53,8 +53,8 @@ public class GrafoTest {
 		expected.add(4);
 		List<Integer> actual = g.percursoLargura(0);
 		assertEquals(expected, actual);
-	}	
-	
+	}
+
 	@Test
 	public void testG6Largura() throws Exception {
 		Grafo g = new Grafo("g6.txt");
@@ -65,7 +65,7 @@ public class GrafoTest {
 		List<Integer> actual = g.percursoLargura(0);
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void testG6Profundidade() throws Exception {
 		Grafo g = new Grafo("g6.txt");
@@ -73,4 +73,68 @@ public class GrafoTest {
 		String actual = g.percursoProfundidade(0).toString();
 		assertEquals(expected, actual);
 	}
+
+	@Test
+	public void testG1mst() throws Exception {
+		Grafo g = new Grafo("g1.txt");
+		int expected = 0;
+		int actual = g.mst();
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testG2mst() throws Exception {
+		Grafo g = new Grafo("g2.txt");
+		int expected = 0;
+		int actual = g.mst();
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testG3mst() throws Exception {
+		Grafo g = new Grafo("g3.txt");
+		int expected = 1;
+		int actual = g.mst();
+		assertEquals(expected, actual);
+	}	
+	
+	@Test
+	public void testG4mst() throws Exception {
+		Grafo g = new Grafo("g4.txt");
+		int expected = 1;
+		int actual = g.mst();
+		assertEquals(expected, actual);
+	}	
+
+	@Test(expected=IllegalArgumentException.class)
+	public void testG5mst() throws Exception {
+		Grafo g = new Grafo("g5.txt");
+		g.mst();
+	}	
+
+	@Test
+	public void testG6mst() throws Exception {
+		Grafo g = new Grafo("g6.txt");
+		int expected = 9;
+		int actual = g.mst();
+		assertEquals(expected, actual);
+	}		
+	
+	@Test
+	public void testG7mst() throws Exception {
+		Grafo g = new Grafo("g7.txt");
+		int expected = 45;
+		int actual = g.mst();
+		assertEquals(expected, actual);
+	}	
+
+	@Test
+	public void testG8mst() throws Exception {
+		Grafo g = new Grafo("g8.txt");
+		int expected = 37;
+		int actual = g.mst();
+		assertEquals(expected, actual);
+	}	
+	
+	
 }
