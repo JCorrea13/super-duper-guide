@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class Grafo {
 
-	private int dados[][];
+	protected int dados[][];
 
 	public Grafo(int tamanho) {
 		checkTamanho(tamanho);
@@ -55,12 +55,12 @@ public class Grafo {
 			throw new IllegalArgumentException("O grafo deve ter um ou mais nodos.");
 	}
 
-	private void checkDestino(int destino) {
+	protected void checkDestino(int destino) {
 		if (destino < 0 && destino >= dados.length)
 			throw new IllegalArgumentException("O nodo do destino não existe");
 	}
 
-	private void checkOrigem(int origem) {
+	protected void checkOrigem(int origem) {
 		if (origem < 0 && origem >= dados.length)
 			throw new IllegalArgumentException("O nodo da origem não existe");
 	}
@@ -103,13 +103,7 @@ public class Grafo {
 		}
 	}
 	
-	/**
-	 * Kruskal
-	 * @return
-	 */
-	public int mst() {
-		return 0;
-	}
+
 	
 	
 
