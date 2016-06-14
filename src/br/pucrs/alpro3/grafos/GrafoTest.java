@@ -136,5 +136,69 @@ public class GrafoTest {
 		assertEquals(expected, actual);
 	}	
 	
+//
+
+	@Test
+	public void testG1mstPrim() throws Exception {
+		GrafoNaoDirecionado g = new GrafoNaoDirecionado("g1.txt");
+		int expected = 0;
+		int actual = g.mstPrim();
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testG2mstPrim() throws Exception {
+		GrafoNaoDirecionado g = new GrafoNaoDirecionado("g2.txt");
+		int expected = 0;
+		int actual = g.mstPrim();
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testG3mstPrim() throws Exception {
+		GrafoNaoDirecionado g = new GrafoNaoDirecionado("g3.txt");
+		int expected = 1;
+		int actual = g.mstPrim();
+		assertEquals(expected, actual);
+	}	
+	
+	@Test
+	public void testG4mstPrim() throws Exception {
+		GrafoNaoDirecionado g = new GrafoNaoDirecionado("g4.txt");
+		int expected = 1;
+		int actual = g.mstPrim();
+		assertEquals(expected, actual);
+	}	
+
+	@Test(expected=IllegalArgumentException.class)
+	public void testG5mstPrim() throws Exception {
+		GrafoNaoDirecionado g = new GrafoNaoDirecionado("g5.txt");
+		g.mstPrim();
+	}	
+
+	@Test
+	public void testG6mstPrim() throws Exception {
+		GrafoNaoDirecionado g = new GrafoNaoDirecionado("g6.txt");
+		int expected = 9;
+		int actual = g.mstPrim();
+		assertEquals(expected, actual);
+	}		
+	
+	@Test
+	public void testG7mstPrim() throws Exception {
+		GrafoNaoDirecionado g = new GrafoNaoDirecionado("g7.txt");
+		int expected = 45;
+		int actual = g.mstPrim();
+		assertEquals(expected, actual);
+	}	
+
+	@Test
+	public void testG8mstPrim() throws Exception {
+		GrafoNaoDirecionado g = new GrafoNaoDirecionado("g8.txt");
+		int expected = 37;
+		int actual = g.mstPrim();
+		assertEquals(expected, actual);
+	}	
+	
 	
 }
