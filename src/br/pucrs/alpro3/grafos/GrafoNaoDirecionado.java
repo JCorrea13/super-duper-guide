@@ -53,9 +53,15 @@ public class GrafoNaoDirecionado extends Grafo {
 			Integer peso2 = new Integer(o.peso);
 			return peso1.compareTo(peso2);
 		}
+
+		@Override
+		public String toString() {
+			return String.format("Aresta [origem=%s, destino=%s, peso=%s]", origem, destino, peso);
+		}
+
 	}
 
-	public int mst() {
+	public int mstKruskal() {
 		// 1. A <- VAZIO
 		List<Aresta> A = new ArrayList<>();
 		int u, v;
@@ -79,25 +85,48 @@ public class GrafoNaoDirecionado extends Grafo {
 		}
 		// ordenar arestas por peso...
 		Collections.sort(E);
-
+//		System.out.println(A);
+//		System.out.println(E);
+//		System.out.println(ss);
+		
 		// 5. para cada aresta ( u,v ) de E em ordem de peso crescente faça
 		for (int i = 0; i < E.size(); i++) {
 			Aresta a = E.get(i);
 			u = a.origem;
 			v = a.destino;
 			// 6. se FIND-SET(u) ≠ FIND-SET(v) então
-			
-			if (true) {
+			Set<Integer> su = findSet(ss, u);
+			Set<Integer> sv = findSet(ss, v);
+			if ( su != sv) {
 				// 7. A <- A U {( u,v )}
-				A.add(new Aresta(u, v, dados[u][v]));
-
+				//A.add(new Aresta(u, v, dados[u][v]));
+				A.add(a);
 				// 8. UNION( u,v )
-				
+				ss.remove(su);
+				sv.addAll(su);
 			}
 		}
+		
+		//
+		if (ss.size() != 1) {
+			throw new IllegalArgumentException("Nao foi possivel conectar todos os nodos!");
+		}
+		
 		// 9. retorna A
+		int s = 0;
+		for (Aresta aresta : A) {
+			s += aresta.peso;
+		}
+		return s;
+	}
 
-		return 0;
+	private Set<Integer> findSet(List<Set<Integer>> ss, int u) {
+		for (int i = 0; i < ss.size(); i++) {
+			if (ss.get(i).contains(u)) {
+				return ss.get(i);
+			}
+		}
+		return null;
 	}
 
 }

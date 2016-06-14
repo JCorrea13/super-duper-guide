@@ -78,7 +78,7 @@ public class GrafoTest {
 	public void testG1mst() throws Exception {
 		GrafoNaoDirecionado g = new GrafoNaoDirecionado("g1.txt");
 		int expected = 0;
-		int actual = g.mst();
+		int actual = g.mstKruskal();
 		assertEquals(expected, actual);
 	}
 
@@ -86,7 +86,7 @@ public class GrafoTest {
 	public void testG2mst() throws Exception {
 		GrafoNaoDirecionado g = new GrafoNaoDirecionado("g2.txt");
 		int expected = 0;
-		int actual = g.mst();
+		int actual = g.mstKruskal();
 		assertEquals(expected, actual);
 	}
 
@@ -94,7 +94,7 @@ public class GrafoTest {
 	public void testG3mst() throws Exception {
 		GrafoNaoDirecionado g = new GrafoNaoDirecionado("g3.txt");
 		int expected = 1;
-		int actual = g.mst();
+		int actual = g.mstKruskal();
 		assertEquals(expected, actual);
 	}	
 	
@@ -102,21 +102,21 @@ public class GrafoTest {
 	public void testG4mst() throws Exception {
 		GrafoNaoDirecionado g = new GrafoNaoDirecionado("g4.txt");
 		int expected = 1;
-		int actual = g.mst();
+		int actual = g.mstKruskal();
 		assertEquals(expected, actual);
 	}	
 
 	@Test(expected=IllegalArgumentException.class)
 	public void testG5mst() throws Exception {
 		GrafoNaoDirecionado g = new GrafoNaoDirecionado("g5.txt");
-		g.mst();
+		g.mstKruskal();
 	}	
 
 	@Test
 	public void testG6mst() throws Exception {
 		GrafoNaoDirecionado g = new GrafoNaoDirecionado("g6.txt");
 		int expected = 9;
-		int actual = g.mst();
+		int actual = g.mstKruskal();
 		assertEquals(expected, actual);
 	}		
 	
@@ -124,7 +124,7 @@ public class GrafoTest {
 	public void testG7mst() throws Exception {
 		GrafoNaoDirecionado g = new GrafoNaoDirecionado("g7.txt");
 		int expected = 45;
-		int actual = g.mst();
+		int actual = g.mstKruskal();
 		assertEquals(expected, actual);
 	}	
 
@@ -132,7 +132,7 @@ public class GrafoTest {
 	public void testG8mst() throws Exception {
 		GrafoNaoDirecionado g = new GrafoNaoDirecionado("g8.txt");
 		int expected = 37;
-		int actual = g.mst();
+		int actual = g.mstKruskal();
 		assertEquals(expected, actual);
 	}	
 	
