@@ -11,12 +11,15 @@ public class GrafoDirecionado extends Grafo {
 		super(nomeDoArquivo);
 	}
 	
-	public void dijkstra() {
-		// TODO: completar
-	}
 	
 	public void floydWarshall() {
 		// TODO: completar
+	}
+
+	public int djikstra(int origem, int destino) {
+		int d[] = new int[dados.length];
+		// TODO Auto-generated method stub
+		return d[destino];
 	}
 	
 	

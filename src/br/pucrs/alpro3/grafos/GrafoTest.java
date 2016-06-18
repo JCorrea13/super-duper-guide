@@ -199,6 +199,17 @@ public class GrafoTest {
 		int actual = g.mstPrim();
 		assertEquals(expected, actual);
 	}	
+
+	
+	@Test
+	public void testG9djikstra() throws Exception {
+		GrafoDirecionado g = new GrafoDirecionado("g9.txt");
+		int expected = 3;
+		int actual = g.djikstra(0, 1);
+		assertEquals(expected, actual);
+	}	
+	
+	
 	
 	
 }
