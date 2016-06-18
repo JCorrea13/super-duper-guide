@@ -12,7 +12,7 @@ import java.util.List;
  * @author marco.mangan@pucrs.br
  *
  */
-public class Grafo {
+public abstract class Grafo {
 
 	protected int dados[][];
 

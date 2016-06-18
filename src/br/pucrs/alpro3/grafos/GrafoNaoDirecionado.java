@@ -184,7 +184,7 @@ public class GrafoNaoDirecionado extends Grafo {
 	}
 
 	private int remover(List<Integer> q, int[] chave) {
-		int menor;
+		int menor = 0;
 		
 		q.remove(new Integer(7));
 		

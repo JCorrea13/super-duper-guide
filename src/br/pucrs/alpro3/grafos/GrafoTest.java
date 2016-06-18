@@ -10,7 +10,7 @@ public class GrafoTest {
 
 	@Test
 	public void testG1() throws Exception {
-		Grafo g = new Grafo("g1.txt");
+		GrafoDirecionado g = new GrafoDirecionado("g1.txt");
 		List<Integer> expected = new ArrayList<>();
 		expected.add(0);
 		List<Integer> actual = g.percursoLargura(0);
@@ -19,7 +19,7 @@ public class GrafoTest {
 
 	@Test
 	public void testG2() throws Exception {
-		Grafo g = new Grafo("g2.txt");
+		GrafoDirecionado g = new GrafoDirecionado("g2.txt");
 		List<Integer> expected = new ArrayList<>();
 		expected.add(0);
 		List<Integer> actual = g.percursoLargura(0);
@@ -28,7 +28,7 @@ public class GrafoTest {
 
 	@Test
 	public void testG3() throws Exception {
-		Grafo g = new Grafo("g3.txt");
+		GrafoDirecionado g = new GrafoDirecionado("g3.txt");
 		List<Integer> expected = new ArrayList<>();
 		expected.add(0);
 		expected.add(1);
@@ -38,7 +38,7 @@ public class GrafoTest {
 
 	@Test
 	public void testG4() throws Exception {
-		Grafo g = new Grafo("g4.txt");
+		GrafoDirecionado g = new GrafoDirecionado("g4.txt");
 		List<Integer> expected = new ArrayList<>();
 		expected.add(0);
 		List<Integer> actual = g.percursoLargura(0);
@@ -47,7 +47,7 @@ public class GrafoTest {
 
 	@Test
 	public void testG5() throws Exception {
-		Grafo g = new Grafo("g5.txt");
+		GrafoDirecionado g = new GrafoDirecionado("g5.txt");
 		List<Integer> expected = new ArrayList<>();
 		expected.add(0);
 		expected.add(4);
@@ -57,7 +57,7 @@ public class GrafoTest {
 
 	@Test
 	public void testG6Largura() throws Exception {
-		Grafo g = new Grafo("g6.txt");
+		GrafoDirecionado g = new GrafoDirecionado("g6.txt");
 		List<Integer> expected = new ArrayList<>();
 		for (int i = 0; i <= 9; i++) {
 			expected.add(i);
@@ -68,7 +68,7 @@ public class GrafoTest {
 
 	@Test
 	public void testG6Profundidade() throws Exception {
-		Grafo g = new Grafo("g6.txt");
+		GrafoDirecionado g = new GrafoDirecionado("g6.txt");
 		String expected = "[0, 1, 2, 5, 6, 3, 7, 4, 8, 9]";
 		String actual = g.percursoProfundidade(0).toString();
 		assertEquals(expected, actual);
