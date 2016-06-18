@@ -2,6 +2,7 @@ package br.pucrs.alpro3.grafos;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -135,7 +136,7 @@ public class GrafoNaoDirecionado extends Grafo {
 	public int mstPrim() {
 
 		// 1. A <- 0
-		List<Aresta> A = new ArrayList<>();
+		// List<Aresta> A = new ArrayList<>();
 		int u, v;
 		int[] chave = new int[dados.length];
 		int[] pai = new int[dados.length];
@@ -162,14 +163,18 @@ public class GrafoNaoDirecionado extends Grafo {
 			u = remover(Q, chave);
 			// 9. para cada vértice v adjacente de u tal que v está em Q faça
 			for (v = 0; v < dados.length; v++) {
+
 				if (dados[u][v] != 0) {
 					if (Q.contains(v)) {
 						// 10. se w( u,v ) < chave [v] então
 						if (dados[u][v] < chave[v]) {
 							// 11. pai [v] = u
-							pai[v] =u;
+							pai[v] = u;
 							// 12. chave [v] = w( u,v )
-							chave[v] = dados[u][v]; 
+							chave[v] = dados[u][v];
+
+							// Aresta a = new Aresta(u, v, dados[u][v]);
+							// A.add(a);
 						}
 					}
 				}
@@ -177,29 +182,26 @@ public class GrafoNaoDirecionado extends Grafo {
 		}
 		// 13. retorna A
 		int s = 0;
-		for (Aresta aresta : A) {
-			s += aresta.peso;
+		// for (Aresta aresta : A) {
+		// s += aresta.peso;
+		// }
+		for (Integer n : chave) {
+			if (n == Integer.MAX_VALUE) {
+				throw new IllegalArgumentException("Nao foi possivel conectar todos os nodos!");
+			}
+			s += n;
 		}
 		return s;
 	}
 
 	private int remover(List<Integer> q, int[] chave) {
-		int menor = 0;
-		// TODO: completar
-		q.remove(new Integer(7));
-		
-		return menor;
+		Collections.sort(q, new Comparator<Integer>() {
+			@Override
+			public int compare(Integer a, Integer b) {
+				return chave[a] - chave[b];
+			}
+		});
+		return q.remove(0);
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
